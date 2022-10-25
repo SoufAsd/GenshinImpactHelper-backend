@@ -4,14 +4,14 @@ const morgan = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const {MongoClient} = require('mongodb');
 const config = require("./config/db");
 const characterRoutes = require("./api/routes/CharacterRoutes.js");
+const scraperRoutes = require("./api/routes/ScraperRouters");
+var imgModel = require('./api/models/AvatarImage.js');
 
 require('dotenv').config()
 const app = express();
-//configure database and mongoose
-
-// db configuaration ends here
 //registering cors
 app.use(cors());
 //configure body parser
@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 });
 // define routes
 app.use("/character", characterRoutes);
+app.use("/scraper", scraperRoutes);
 
 const init = async () => {
   config();

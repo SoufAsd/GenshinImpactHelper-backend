@@ -30,6 +30,10 @@ let characterSchema = mongoose.Schema({
         type: Object,
         required: true
     },
+    image: {
+      data:Buffer,
+      contentType: String
+    },
     created: {
       type: Date,
       default: Date.now()
