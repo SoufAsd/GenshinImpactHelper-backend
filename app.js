@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(morgan("dev")); // configire morgan
 // define first route
 app.get("/", (req, res) => {
-  res.json("Genshin Impact Helper");
+  res.json(["Welcome Genshin Impact Helper","for characters : /characters","for each character : /characters/NAME"]);
 });
 // define routes
 app.use("/character", characterRoutes);
