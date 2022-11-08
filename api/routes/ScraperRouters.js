@@ -4,4 +4,6 @@ const ScraperController = require("../controllers/ScraperController");
 
 router.get("/",  ScraperController.getAllAvatars);
 
+router.get("/allcharacters",  ScraperController.getEachCharacter);
+
 module.exports = router ;
