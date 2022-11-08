@@ -28,10 +28,14 @@ const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 exports.getAllCharacters = async (req, res) => {
-  let client = await connection();
-  db = await client.db("test");
-  characters = await db.collection("avatarimages").find().toArray();
+  let client = await connectionv2();
+  characters = await client.collection('avatarimages').find().toArray();
   return res.status(200).json(characters);
+  // let client = await connection();
+  // db = await client.db("test");
+  // characters = await db.collection("avatarimages").find().toArray();
+  // return res.status(200).json(characters);
+
   // axios(config)
   //   .then(function (response) {
   //       return res.status(200).json(response.data);
@@ -80,9 +84,11 @@ exports.getCharacter = async (req, res) => {
   }
 };
 exports.getMyCharacter = async (req, res) => {
-  let client = await connection();
-  db = await client.db("test");
-  character = await db.collection("characters").find({"name":req.params.charactername}).toArray();
+  let client = await connectionv2();
+  character = await client.collection('characters').find({"name":req.params.charactername}).toArray();
+  // let client = await connection();
+  // db = await client.db("test");
+  // character = await db.collection("characters").find({"name":req.params.charactername}).toArray();
 
   return res.status(200).json(character);
 };

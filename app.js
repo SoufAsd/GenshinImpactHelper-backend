@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(morgan("dev")); // configire morgan
 // define first route
 app.get("/", (req, res) => {
-  res.json(["Welcome Genshin Impact Helper","for characters : /characters","for each character : /characters/NAME"]);
+  res.json(["Welcome Genshin Impact Helper","for characters : /character","for each character : /character/NAME"]);
 });
 // define routes
 app.use("/character", characterRoutes);
@@ -32,7 +32,7 @@ const init = async () => {
 };
 //
 app.listen(PORT,async () => {
-  await init();
+  // await init();
   console.log(process.env.URL) 
   console.log(`App is running on ${PORT}`);
 });
